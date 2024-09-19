@@ -1,4 +1,3 @@
-
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,7 +43,7 @@ class ReadQrCubit extends Cubit<ReadQrState> {
           return;
         }
       } on PlatformException catch (e) {
-        emit(ReadQrFail(message: e.code ?? 'Failed to read QR code'));
+        emit(ReadQrFail(message: e.code));
       } catch (e) {
         emit(ReadQrFail(message: e.toString()));
       }

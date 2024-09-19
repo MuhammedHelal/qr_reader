@@ -1,21 +1,16 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:android_intent_plus/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_reader/core/classes/qr_parser.dart';
-import 'package:qr_reader/core/functions/launch_url.dart';
-import 'package:qr_reader/core/functions/show_toast.dart';
-import 'package:qr_reader/features/generate_qr/presentation/manager/show_qr_cubit/show_qr_cubit.dart';
-import 'package:qr_reader/features/generate_qr/presentation/widgets/action_button_impl.dart';
 import 'package:qr_reader/features/generate_qr/presentation/widgets/buttons/email_send_email_button.dart';
 import 'package:qr_reader/features/generate_qr/presentation/widgets/buttons/sms_send_sms_button.dart';
 import 'package:qr_reader/features/generate_qr/presentation/widgets/buttons/website_open_url_button.dart';
 import 'package:qr_reader/features/generate_qr/presentation/widgets/buttons/wifi_save_and_connect_button.dart';
-import 'package:wifi_iot/wifi_iot.dart';
 
 const platform = MethodChannel('dev.moashraf.qr_reader.fileprovider');
 
@@ -23,6 +18,7 @@ Widget buildActionbutton({
   required String data,
   required QRCodeType type,
 }) {
+  log(data + type.name);
   switch (type) {
     case QRCodeType.email:
       return EmailSendEmailButton(data: data);

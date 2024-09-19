@@ -24,9 +24,7 @@ class HistoryListViewItem extends StatelessWidget {
       onTap: () {
         navigateWithoutNavBar(
           context,
-          ViewHistoryQrItem(
-            item: item,
-          ),
+          ViewHistoryQrItem(item: item),
         );
       },
       onLongPress: () async {

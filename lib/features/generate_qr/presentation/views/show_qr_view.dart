@@ -48,7 +48,8 @@ class ShowQrView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Gap(80),
+                  const CustomAppBar(title: ''),
+                  const Gap(10),
                   Screenshot(
                     controller: screenshotController,
                     child: Column(
@@ -108,7 +109,6 @@ class ShowQrView extends StatelessWidget {
               ),
             ),
           ),
-          const CustomAppBar(title: ''),
         ],
       ),
     );

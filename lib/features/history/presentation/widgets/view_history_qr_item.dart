@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -17,78 +19,73 @@ class ViewHistoryQrItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ScreenshotController screenshotController = ScreenshotController();
-
+    log(QRCodeType.values.byName(item.type).name);
     return Scaffold(
       body: Stack(
+        clipBehavior: Clip.none,
+        fit: StackFit.expand,
         children: [
           const BackgroundCircles(),
           SingleChildScrollView(
-            child: SafeArea(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Gap(80),
-                  Screenshot(
-                    controller: screenshotController,
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 16),
-                          width: double.infinity,
-                          padding: const EdgeInsets.all(12),
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(16),
-                            ),
-                            color: AppColors.blackGreyish,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                CustomAppBar(title: item.type),
+                const Gap(10),
+                Screenshot(
+                  controller: screenshotController,
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 16),
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(12),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(16),
                           ),
-                          child: Text(item.qrData ?? item.data),
+                          color: AppColors.blackGreyish,
                         ),
-                        const Gap(40),
-                        Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                color: AppColors.primary,
-                                width: 4,
-                                strokeAlign: BorderSide.strokeAlignOutside,
-                              ),
-                            ),
-                            child: QrImageView(
-                              data: item.data,
-                              backgroundColor: Colors.white,
-                              size: 160,
+                        child: Text(item.qrData ?? item.data),
+                      ),
+                      const Gap(40),
+                      Center(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: AppColors.primary,
+                              width: 4,
+                              strokeAlign: BorderSide.strokeAlignOutside,
                             ),
                           ),
+                          child: QrImageView(
+                            data: item.data,
+                            backgroundColor: Colors.white,
+                            size: 160,
+                          ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  const Gap(41),
-                  CopyAndCaptureScreenshotButtons(
-                    data: item.qrData ?? item.data,
-                    screenshotController: screenshotController,
-                  ),
-                  const Gap(12),
-                  buildActionbutton(
-                    data: item.data,
-                    type: QRCodeType.values.byName(item.type),
-                  ),
-                  const Gap(60),
-                ],
-              ),
+                ),
+                const Gap(41),
+                CopyAndCaptureScreenshotButtons(
+                  data: item.qrData ?? item.data,
+                  screenshotController: screenshotController,
+                ),
+                const Gap(12),
+                buildActionbutton(
+                  data: item.data,
+                  type: QRCodeType.values.byName(item.type),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text(formatDateTime(item.date)),
+                ),
+              ],
             ),
           ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(formatDateTime(item.date)),
-            ),
-          ),
-          CustomAppBar(title: item.type),
         ],
       ),
     );

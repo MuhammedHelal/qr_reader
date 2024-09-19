@@ -8,15 +8,19 @@ enum QRCodeType {
 }
 
 class QRCodeParser {
-  static final RegExp _emailRegex =
-      RegExp(r'^mailto:([^?]+)\?subject=([^&]+)&body=(.+)$');
+  static final RegExp _emailRegex = RegExp(
+    r'^mailto:([^?]+)\?subject=([^&]+)&body=(.*)',
+    multiLine: true,
+    dotAll: true,
+  );
   static final RegExp _wifiRegex =
       RegExp(r'^WIFI:T:([^;]+);S:([^;]+);P:([^;]+);H:([^;]+);$');
   static final RegExp _smsRegex = RegExp(r'^sms:([^?]+)\?body=(.+)$');
   static final RegExp _websiteRegex = RegExp(
       r'^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$');
 
-  static final RegExp _eventRegex = RegExp(r'''BEGIN:VCALENDAR\s*
+  static final RegExp _eventRegex = RegExp(
+    r'''BEGIN:VCALENDAR\s*
 VERSION:2\.0\s*
 PRODID:-//hacksw/handcal//NONSGML v1\.0//EN\s*
 BEGIN:VEVENT\s*
@@ -26,7 +30,11 @@ DTEND:(.+?)\s*
 LOCATION:(.+?)\s*
 DESCRIPTION:(.+?)\s*
 END:VEVENT\s*
-END:VCALENDAR''', multiLine: true, dotAll: true, caseSensitive: false);
+END:VCALENDAR''',
+    multiLine: true,
+    dotAll: true,
+    caseSensitive: false,
+  );
 
   static QRCodeType getQRCodeType(String data) {
     if (_emailRegex.hasMatch(data)) {
