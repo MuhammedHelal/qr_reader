@@ -16,6 +16,7 @@ class ReadQrView extends StatelessWidget {
     final cubit = BlocProvider.of<ReadQrCubit>(context);
     return SafeArea(
       child: Stack(
+      
         alignment: Alignment.center,
         fit: StackFit.expand,
         clipBehavior: Clip.none,
