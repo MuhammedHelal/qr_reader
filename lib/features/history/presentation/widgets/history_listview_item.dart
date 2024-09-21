@@ -97,14 +97,20 @@ class HistoryListViewItem extends StatelessWidget {
     return showDialog(
       context: context,
       builder: (context) {
-        return CupertinoAlertDialog(
+        return AlertDialog(
+          alignment: Alignment.center,
           title: const Text(
             'Delete?',
+            textAlign: TextAlign.center,
             style: TextStyle(color: AppColors.primary),
           ),
-          content: const Text('Are you sure?'),
+          content: const Text(
+            'Are you sure?',
+            textAlign: TextAlign.center,
+          ),
           actions: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 OutlinedButton(
