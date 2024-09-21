@@ -4,13 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_reader/core/functions/format_datetime.dart';
-import 'package:qr_reader/core/functions/navbar_navigation.dart';
 import 'package:qr_reader/core/functions/show_toast.dart';
 import 'package:qr_reader/core/services/locator.dart';
 import 'package:qr_reader/core/utils/colors.dart';
 import 'package:qr_reader/features/history/domain/history_item_entity.dart';
 import 'package:qr_reader/features/history/presentation/manager/history_cubit/history_cubit.dart';
-import 'package:qr_reader/features/history/presentation/widgets/view_history_qr_item.dart';
 
 class HistoryListViewItem extends StatelessWidget {
   const HistoryListViewItem({
@@ -22,10 +20,10 @@ class HistoryListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        navigateWithoutNavBar(
+        /*   navigateWithoutNavBar(
           context,
           ViewHistoryQrItem(item: item),
-        );
+        );*/
       },
       onLongPress: () async {
         await Clipboard.setData(ClipboardData(text: item.qrData ?? item.data));

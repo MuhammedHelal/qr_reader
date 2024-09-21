@@ -89,6 +89,7 @@ class _EventQrViewState extends State<EventQrView> {
                                     onTap: () async {
                                       final value = await showDatePicker(
                                         context: context,
+                                        initialDate: DateTime.now(),
                                         firstDate: DateTime(2000),
                                         lastDate: DateTime(2040),
                                       );
@@ -109,7 +110,7 @@ class _EventQrViewState extends State<EventQrView> {
                                       ignorePointers: true,
                                       controller: startDateAndTimeController,
                                       decoration: const InputDecoration(
-                                        hintText: 'Start Date and Time',
+                                        hintText: 'Start Date',
                                         hintStyle:
                                             TextStyle(color: Colors.grey),
                                       ),
@@ -120,6 +121,11 @@ class _EventQrViewState extends State<EventQrView> {
                                     onTap: () async {
                                       final value = await showDatePicker(
                                         context: context,
+                                        initialDate: DateTime(
+                                          DateTime.now().year,
+                                          DateTime.now().month,
+                                          DateTime.now().day + 1,
+                                        ),
                                         firstDate: DateTime(2000),
                                         lastDate: DateTime(2040),
                                       );
@@ -139,7 +145,7 @@ class _EventQrViewState extends State<EventQrView> {
                                       },
                                       ignorePointers: true,
                                       decoration: const InputDecoration(
-                                        hintText: 'End Date and Time',
+                                        hintText: 'End Date',
                                         hintStyle:
                                             TextStyle(color: Colors.grey),
                                       ),

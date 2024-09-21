@@ -60,7 +60,7 @@ END:VCALENDAR''',
       String end = match.group(3) ?? '';
       String location = match.group(4) ?? '';
       String description = match.group(5) ?? '';
-      return 'Name: $summary\nStart: $start\nEnd: $end\nLocation: $location\nDescription: $description';
+      return 'Name: $summary\nStart date: $start\nEnd date: $end\nLocation: $location\nDescription: $description';
     }
     return null;
   }
