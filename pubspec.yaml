@@ -32,15 +32,18 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
+  flutter_sound_system: ^0.0.9
   flutter_svg: null
   fluttertoast: ^8.2.8
   gallery_saver: null
   gap: ^3.0.1
   get_it: ^7.7.0
+  google_fonts: null
   hive: ^2.2.3
   hive_flutter: null
   image_picker: ^1.1.2
   intl: ^0.19.0
+  just_audio: ^0.9.40
   path_provider: ^2.1.4
   persistent_bottom_nav_bar: ^6.2.1
   qr_code_scanner: ^1.0.1
@@ -49,8 +52,8 @@ dependencies:
   screenshot: null
   svg_flutter: ^0.0.1
   url_launcher: ^6.3.0
+  vibration: ^2.0.0
   wifi_iot: ^0.3.19+1
-
 
 dev_dependencies:
   build_runner: null
@@ -74,6 +77,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/sounds/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

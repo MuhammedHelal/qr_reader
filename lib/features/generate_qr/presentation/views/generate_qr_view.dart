@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:qr_reader/core/functions/navbar_navigation.dart';
+import 'package:qr_reader/core/services/locator.dart';
 import 'package:qr_reader/core/utils/assets.dart';
+import 'package:qr_reader/core/utils/colors.dart';
 import 'package:qr_reader/core/widgets/background_greyish_black.dart';
+import 'package:qr_reader/core/widgets/custom_iconbutton_background.dart';
 import 'package:qr_reader/features/generate_qr/presentation/views/email_qr_view.dart';
 import 'package:qr_reader/features/generate_qr/presentation/views/event_qr_view.dart';
 import 'package:qr_reader/features/generate_qr/presentation/views/sms_qr_view.dart';
@@ -10,6 +15,8 @@ import 'package:qr_reader/features/generate_qr/presentation/views/text_qr_view.d
 import 'package:qr_reader/features/generate_qr/presentation/views/website_qr_view.dart';
 import 'package:qr_reader/features/generate_qr/presentation/views/wifi_qr_view.dart';
 import 'package:qr_reader/features/generate_qr/presentation/widgets/generate_qr_grid_view_item.dart';
+import 'package:qr_reader/features/settings/presentation/manager/cubit/settings_cubit.dart';
+import 'package:qr_reader/features/settings/presentation/views/settings_view.dart';
 
 class GenerateQrView extends StatelessWidget {
   const GenerateQrView({super.key});
@@ -26,7 +33,36 @@ class GenerateQrView extends StatelessWidget {
           child: SafeArea(
             child: Column(
               children: [
-                const Gap(20),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Generate QR',
+                      style: Theme.of(context).textTheme.titleMedium!,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        navigateWithoutNavBar(
+                          context,
+                          BlocProvider.value(
+                            value: locator<SettingsCubit>(),
+                            child: const SettingsView(),
+                          ),
+                        );
+                      },
+                      child: CustomIconButtonBackground(
+                        icon: Padding(
+                          padding: const EdgeInsets.all(2),
+                          child: SvgPicture.asset(
+                            Assets.assetsImagesMenuIcon,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                const Gap(40),
                 Expanded(
                   child: GridView(
                     gridDelegate:

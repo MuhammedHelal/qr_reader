@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:qr_reader/core/functions/navbar_navigation.dart';
 import 'package:qr_reader/core/widgets/custom_appbar.dart';
 import 'package:qr_reader/core/widgets/show_qr_view_with_cubit.dart';
-import 'package:qr_reader/features/generate_qr/presentation/widgets/generate_qr_content_container.dart';
+import 'package:qr_reader/core/widgets/black_greyish_container.dart';
 import 'package:qr_reader/features/generate_qr/presentation/widgets/generate_qr_item_view_body.dart';
 
 class WifiQrView extends StatefulWidget {
@@ -53,7 +53,7 @@ class _WifiQrViewState extends State<WifiQrView> {
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: GenerateQrContentContainer(
+                    child: BlackGreyishContainer(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [

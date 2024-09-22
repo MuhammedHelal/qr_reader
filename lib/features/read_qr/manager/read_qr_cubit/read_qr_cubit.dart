@@ -4,9 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qr_code_tools/qr_code_tools.dart';
+import 'package:qr_reader/core/functions/make_feedback.dart';
 part 'read_qr_state.dart';
 
-class  ReadQrCubit extends Cubit<ReadQrState> {
+class ReadQrCubit extends Cubit<ReadQrState> {
   ReadQrCubit() : super(ReadQrInitial());
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -18,12 +19,13 @@ class  ReadQrCubit extends Cubit<ReadQrState> {
     }
   }
 
+
   void onQRViewCreated(QRViewController controller) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) async {
       if (scanData.code == null) return;
       emit(ReadQrSuccess(data: scanData.code!));
-
+      await makeFeedback();
       await controller.pauseCamera();
     });
   }

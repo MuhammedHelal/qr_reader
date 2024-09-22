@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:qr_reader/core/utils/colors.dart';
 
 abstract class AppTheme {
@@ -48,6 +49,14 @@ abstract class AppTheme {
     iconTheme: const IconThemeData(
       color: AppColors.primary,
       size: 45,
+    ),
+    textTheme: GoogleFonts.itimTextTheme(
+      const TextTheme(
+        bodyMedium: TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+        ),
+      ),
     ),
   );
 }
