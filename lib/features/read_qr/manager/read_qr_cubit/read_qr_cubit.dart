@@ -6,7 +6,7 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qr_code_tools/qr_code_tools.dart';
 part 'read_qr_state.dart';
 
-class ReadQrCubit extends Cubit<ReadQrState> {
+class  ReadQrCubit extends Cubit<ReadQrState> {
   ReadQrCubit() : super(ReadQrInitial());
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');

@@ -35,38 +35,7 @@ class GenerateQrView extends StatelessWidget {
                       mainAxisSpacing: 75,
                       crossAxisSpacing: 43,
                     ),
-                    children: [
-                      const GenerateQrGridViewItem(
-                        icon: Icon(Icons.text_fields_sharp),
-                        navigateTo: TextQrView(),
-                        title: 'Text',
-                      ),
-                      GenerateQrGridViewItem(
-                        icon: SvgPicture.asset(Assets.assetsImagesWebsiteIcon),
-                        navigateTo: const WebsiteQrView(),
-                        title: 'Website',
-                      ),
-                      const GenerateQrGridViewItem(
-                        icon: Icon(Icons.wifi),
-                        navigateTo: WifiQrView(),
-                        title: 'Wifi',
-                      ),
-                      const GenerateQrGridViewItem(
-                        icon: Icon(Icons.event_available),
-                        navigateTo: EventQrView(),
-                        title: 'Event',
-                      ),
-                      const GenerateQrGridViewItem(
-                        icon: Icon(Icons.alternate_email_outlined),
-                        navigateTo: EmailQrView(),
-                        title: 'Email',
-                      ),
-                      const GenerateQrGridViewItem(
-                        icon: Icon(Icons.sms_rounded),
-                        navigateTo: SmsQrView(),
-                        title: 'Sms',
-                      ),
-                    ],
+                    children: gridViewChildern,
                   ),
                 ),
                 const Gap(10),
@@ -77,4 +46,37 @@ class GenerateQrView extends StatelessWidget {
       ],
     );
   }
+
+  static final gridViewChildern = [
+    const GenerateQrGridViewItem(
+      icon: Icon(Icons.text_fields_sharp),
+      navigateTo: TextQrView(),
+      title: 'Text',
+    ),
+    GenerateQrGridViewItem(
+      icon: SvgPicture.asset(Assets.assetsImagesWebsiteIcon),
+      navigateTo: const WebsiteQrView(),
+      title: 'Website',
+    ),
+    const GenerateQrGridViewItem(
+      icon: Icon(Icons.wifi),
+      navigateTo: WifiQrView(),
+      title: 'Wifi',
+    ),
+    const GenerateQrGridViewItem(
+      icon: Icon(Icons.event_available),
+      navigateTo: EventQrView(),
+      title: 'Event',
+    ),
+    const GenerateQrGridViewItem(
+      icon: Icon(Icons.alternate_email_outlined),
+      navigateTo: EmailQrView(),
+      title: 'Email',
+    ),
+    const GenerateQrGridViewItem(
+      icon: Icon(Icons.sms_rounded),
+      navigateTo: SmsQrView(),
+      title: 'Sms',
+    )
+  ];
 }
