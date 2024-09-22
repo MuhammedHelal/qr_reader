@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +15,6 @@ class ReadQrView extends StatelessWidget {
     final cubit = BlocProvider.of<ReadQrCubit>(context);
     return SafeArea(
       child: Stack(
-      
         alignment: Alignment.center,
         fit: StackFit.expand,
         clipBehavior: Clip.none,
@@ -38,10 +36,8 @@ class ReadQrView extends StatelessWidget {
                 autofocus: true,
                 onFocusChange: (value) async {
                   if (!value) {
-                    log('pause');
                     await cubit.controller?.pauseCamera();
                   } else {
-                    log('resume');
                     await cubit.controller?.resumeCamera();
                   }
                 },

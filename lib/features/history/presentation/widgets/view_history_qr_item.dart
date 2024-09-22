@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -19,7 +18,6 @@ class ViewHistoryQrItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ScreenshotController screenshotController = ScreenshotController();
-    log(QRCodeType.values.byName(item.type).name);
     return Scaffold(
       body: Stack(
         clipBehavior: Clip.none,

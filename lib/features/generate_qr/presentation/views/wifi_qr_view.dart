@@ -162,7 +162,7 @@ class _WifiQrViewState extends State<WifiQrView> {
             ),
           ),
           const CustomAppBar(
-            title: 'Wifi',
+            title: 'Wi-fi',
           ),
         ],
       ),

@@ -207,9 +207,7 @@ LOCATION:${addressController.text}
 DESCRIPTION:${descriptionController.text}
 END:VEVENT
 END:VCALENDAR''';
-                              /* String data =
-                                  'Title: ${eventNameController.text}\nStart Date: ${startDateAndTimeController.text}\nEnd Date: ${endDateAndTimeController.text}\nAddress: ${addressController.text}\nDescription: ${descriptionController.text}';
-                             */
+
                               navigateWithoutNavBar(
                                 context,
                                 ShowQrViewWithCubit(ics),
@@ -227,9 +225,7 @@ END:VCALENDAR''';
               ],
             ),
           ),
-          const CustomAppBar(
-            title: 'Event',
-          ),
+          const CustomAppBar(title: 'Event'),
         ],
       ),
     );

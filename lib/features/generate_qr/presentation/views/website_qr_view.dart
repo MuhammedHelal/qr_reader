@@ -100,9 +100,7 @@ class _WebsiteQrViewState extends State<WebsiteQrView> {
               ],
             ),
           ),
-          const CustomAppBar(
-            title: 'Website',
-          ),
+          const CustomAppBar(title: 'Website'),
         ],
       ),
     );

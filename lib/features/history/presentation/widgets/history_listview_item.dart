@@ -3,11 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_reader/core/functions/format_datetime.dart';
+import 'package:qr_reader/core/functions/navbar_navigation.dart';
 import 'package:qr_reader/core/functions/show_toast.dart';
-import 'package:qr_reader/core/services/locator.dart';
 import 'package:qr_reader/core/utils/colors.dart';
 import 'package:qr_reader/features/history/domain/history_item_entity.dart';
-import 'package:qr_reader/features/history/presentation/manager/history_cubit/history_cubit.dart';
+import 'package:qr_reader/features/history/presentation/widgets/delete_alert_dialog.dart';
+import 'package:qr_reader/features/history/presentation/widgets/view_history_qr_item.dart';
 
 class HistoryListViewItem extends StatelessWidget {
   const HistoryListViewItem({
@@ -19,10 +20,10 @@ class HistoryListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        /*   navigateWithoutNavBar(
+        navigateWithoutNavBar(
           context,
           ViewHistoryQrItem(item: item),
-        );*/
+        );
       },
       onLongPress: () async {
         await Clipboard.setData(ClipboardData(text: item.qrData ?? item.data));
@@ -96,49 +97,7 @@ class HistoryListViewItem extends StatelessWidget {
     return showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          alignment: Alignment.center,
-          title: const Text(
-            'Delete?',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors.primary),
-          ),
-          content: const Text(
-            'Are you sure?',
-            textAlign: TextAlign.center,
-          ),
-          actions: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Cancel'),
-                ),
-                const Gap(12),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                  ),
-                  onPressed: () async {
-                    Navigator.pop(context);
-
-                    await locator<HistoryCubit>().deleteHistory(item);
-                  },
-                  child: const Text('Delete'),
-                ),
-              ],
-            )
-          ],
-        );
+        return DeleteAlertDialog(item: item);
       },
     );
   }

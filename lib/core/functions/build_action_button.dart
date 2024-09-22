@@ -1,11 +1,6 @@
-import 'dart:developer';
-import 'dart:io';
 
-import 'package:android_intent_plus/android_intent.dart';
-import 'package:android_intent_plus/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:qr_reader/core/classes/qr_parser.dart';
 import 'package:qr_reader/features/generate_qr/presentation/widgets/buttons/email_send_email_button.dart';
 import 'package:qr_reader/features/generate_qr/presentation/widgets/buttons/sms_send_sms_button.dart';
@@ -18,7 +13,6 @@ Widget buildActionbutton({
   required String data,
   required QRCodeType type,
 }) {
-  log(data + type.name);
   switch (type) {
     case QRCodeType.email:
       return EmailSendEmailButton(data: data);
@@ -35,7 +29,7 @@ Widget buildActionbutton({
   }
 }
 
-Future<void> saveAndOpenICS(String ics) async {
+/* Future<void> saveAndOpenICS(String ics) async {
   final directory = await getApplicationCacheDirectory();
   final file = File('${directory.path}/event.ics');
 
@@ -69,4 +63,4 @@ Future<void> saveAndOpenICS(String ics) async {
     text: 'Add event to calendar',
   );
   log(result.status.toString());*/
-}
+}*/

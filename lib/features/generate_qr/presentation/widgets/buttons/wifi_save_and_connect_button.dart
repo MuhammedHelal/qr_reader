@@ -15,7 +15,7 @@ class WifiSaveWifiAndConnectButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ActionButtonImpl(
       icon: const Icon(
-        Icons.wifi_2_bar_sharp,
+        Icons.wifi,
         size: 30,
       ),
       title: 'Save Wifi and connect',

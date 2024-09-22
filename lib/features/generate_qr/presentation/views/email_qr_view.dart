@@ -142,9 +142,7 @@ class _EmailQrViewState extends State<EmailQrView> {
               ],
             ),
           ),
-          const CustomAppBar(
-            title: 'Email',
-          ),
+          const CustomAppBar(title: 'Email'),
         ],
       ),
     );

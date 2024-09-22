@@ -1,20 +1,18 @@
-import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qr_reader/features/history/data/local_data_source.dart';
+import 'package:qr_reader/features/history/data/history_local_data_source.dart';
 import 'package:qr_reader/features/history/domain/history_item_entity.dart';
 
 part 'history_state.dart';
 
 class HistoryCubit extends Cubit<HistoryState> {
   HistoryCubit(this.localDataSource) : super(HistoryInitial());
-  final LocalDataSource localDataSource;
+  final HistoryLocalDataSource localDataSource;
   int tapIndex = 0;
   List<HistoryItemEntity> history = [];
 
   void getHistory() {
     history = localDataSource.getHistory(tapIndex == 0);
-    log(history.toString());
     emit(HistorySuccess(history));
   }
 

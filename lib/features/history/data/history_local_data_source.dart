@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 import 'package:qr_reader/core/utils/strings.dart';
 import 'package:qr_reader/features/history/domain/history_item_entity.dart';
 
-class LocalDataSource {
+class HistoryLocalDataSource {
   List<HistoryItemEntity> getHistory(bool getScannedHistory) {
     Box<HistoryItemEntity> box;
     if (getScannedHistory) {

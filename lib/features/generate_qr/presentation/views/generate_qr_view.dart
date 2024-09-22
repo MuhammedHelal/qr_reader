@@ -61,7 +61,7 @@ class GenerateQrView extends StatelessWidget {
     const GenerateQrGridViewItem(
       icon: Icon(Icons.wifi),
       navigateTo: WifiQrView(),
-      title: 'Wifi',
+      title: 'Wi-fi',
     ),
     const GenerateQrGridViewItem(
       icon: Icon(Icons.event_available),
