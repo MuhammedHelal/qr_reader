@@ -13,8 +13,8 @@ class BeepSettingsWidget extends StatelessWidget {
 
     return ListTile(
       leading: SvgPicture.asset(Assets.assetsImagesBeepIcon),
-      title: const Text('Beep'),
-      subtitle: const Text('Beep when scan is done.'),
+      title: const Text('Duck'),
+      subtitle: const Text('Quack when scan is done.'),
       trailing: BlocBuilder<SettingsCubit, SettingsState>(
         builder: (context, state) {
           return Switch(

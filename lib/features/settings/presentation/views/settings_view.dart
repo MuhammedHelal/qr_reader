@@ -60,28 +60,35 @@ class SettingsView extends StatelessWidget {
                   ),
                   const Gap(10),
                   SettingsItemContainer(
-                    child: ListTile(
-                      onTap: () async {
-                        const String appPackageName = 'dev.moashraf.qr_reader';
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ListTile(
+                        onTap: () async {
+                          const String appPackageName =
+                              'dev.moashraf.qr_reader';
 
-                        final Uri playStoreUri =
-                            Uri.parse('market://details?id=$appPackageName');
-                        final Uri playStoreWebUri = Uri.parse(
-                            'https://play.google.com/store/apps/details?id=$appPackageName');
+                          final Uri playStoreUri =
+                              Uri.parse('market://details?id=$appPackageName');
+                          final Uri playStoreWebUri = Uri.parse(
+                              'https://play.google.com/store/apps/details?id=$appPackageName');
 
-                        if (await canLaunchUrl(playStoreUri)) {
-                          log('open play store');
-                          await launchUrl(playStoreUri);
-                        } else if (await canLaunchUrl(playStoreWebUri)) {
-                          await launchUrl(playStoreWebUri);
-                          log('open play store web');
-                        }
-                      },
-                      leading: SvgPicture.asset(
-                        Assets.assetsImagesRateUsIcon,
+                          if (await canLaunchUrl(playStoreUri)) {
+                            log('open play store');
+                            await launchUrl(playStoreUri);
+                          } else if (await canLaunchUrl(playStoreWebUri)) {
+                            await launchUrl(playStoreWebUri);
+                            log('open play store web');
+                          }
+                        },
+                        leading: SvgPicture.asset(
+                          fit: BoxFit.cover,
+                          width: 24,
+                          height: 24,
+                          Assets.assetsImagesRateUsIcon,
+                        ),
+                        title: const Text('Rate us'),
+                        subtitle: const Text('Your best reward to us.'),
                       ),
-                      title: const Text('Rate us'),
-                      subtitle: const Text('Your best reward to us.'),
                     ),
                   ),
                   const Gap(10),
