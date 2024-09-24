@@ -9,3 +9,13 @@ void navigateWithoutNavBar(BuildContext context, Widget widget) async {
     pageTransitionAnimation: PageTransitionAnimation.slideRight,
   );
 }
+
+void navigateWithoutNavBarWithCupertinoAnimation(
+    BuildContext context, Widget widget) async {
+  await PersistentNavBarNavigator.pushNewScreen(
+    context,
+    screen: widget,
+    withNavBar: false,
+    pageTransitionAnimation: PageTransitionAnimation.cupertino,
+  );
+}

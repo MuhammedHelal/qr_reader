@@ -24,7 +24,7 @@ class CustomScreenTitle extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            navigateWithoutNavBar(
+            navigateWithoutNavBarWithCupertinoAnimation(
               context,
               BlocProvider.value(
                 value: locator<SettingsCubit>(),
