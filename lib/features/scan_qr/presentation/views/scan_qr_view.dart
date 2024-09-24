@@ -3,22 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qr_reader/core/utils/colors.dart';
 import 'package:qr_reader/core/widgets/show_qr_view_with_cubit.dart';
-import 'package:qr_reader/features/read_qr/manager/read_qr_cubit/read_qr_cubit.dart';
-import 'package:qr_reader/features/read_qr/presentation/widgets/read_qr_buttons.dart';
+import 'package:qr_reader/features/scan_qr/manager/scan_qr_cubit/scan_qr_cubit.dart';
 
-class ReadQrView extends StatelessWidget {
-  const ReadQrView({super.key});
+class ScanQrView extends StatelessWidget {
+  const ScanQrView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<ReadQrCubit>(context);
+    final cubit = BlocProvider.of<ScanQrCubit>(context);
     return SafeArea(
       child: Stack(
         alignment: Alignment.center,
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
-          BlocBuilder<ReadQrCubit, ReadQrState>(
+          BlocBuilder<ScanQrCubit, ScanQrState>(
             builder: (context, state) {
               if (state is ReadQrSuccess) {
                 return ShowQrViewWithCubit(

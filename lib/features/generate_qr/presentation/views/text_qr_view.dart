@@ -96,9 +96,7 @@ class _TextQrViewState extends State<TextQrView> {
               ],
             ),
           ),
-          const CustomAppBar(
-            title: 'Text',
-          ),
+          const CustomAppBar(title: 'Text'),
         ],
       ),
     );

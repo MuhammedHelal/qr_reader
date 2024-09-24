@@ -8,7 +8,7 @@ class ReadQrButtons extends StatelessWidget {
   const ReadQrButtons({super.key});
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<ReadQrCubit>(context);
+    final cubit = BlocProvider.of<ScanQrCubit>(context);
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       decoration: const BoxDecoration(
@@ -35,7 +35,7 @@ class ReadQrButtons extends StatelessWidget {
               Icons.image_outlined,
             ),
           ),
-          BlocBuilder<ReadQrCubit, ReadQrState>(
+          BlocBuilder<ScanQrCubit, ScanQrState>(
             builder: (context, state) {
               if (state is ReadQrSuccess || state is ReadQrFail) {
                 return const IconButton(

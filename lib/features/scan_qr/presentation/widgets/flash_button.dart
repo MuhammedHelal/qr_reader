@@ -10,13 +10,13 @@ class FlashButton extends StatefulWidget {
 }
 
 class _FlashButtonState extends State<FlashButton> {
-  late final ReadQrCubit cubit;
+  late final ScanQrCubit cubit;
 
   bool isFlashOn = false;
   @override
   void initState() {
     super.initState();
-    cubit = BlocProvider.of<ReadQrCubit>(context);
+    cubit = BlocProvider.of<ScanQrCubit>(context);
   }
 
   @override

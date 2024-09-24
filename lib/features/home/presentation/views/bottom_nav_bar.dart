@@ -5,8 +5,8 @@ import 'package:qr_reader/core/utils/assets.dart';
 import 'package:qr_reader/core/utils/colors.dart';
 import 'package:qr_reader/features/generate_qr/presentation/views/generate_qr_view.dart';
 import 'package:qr_reader/features/history/presentation/views/history_view.dart';
-import 'package:qr_reader/features/read_qr/manager/read_qr_cubit/read_qr_cubit.dart';
-import 'package:qr_reader/features/read_qr/presentation/views/read_qr_view.dart';
+import 'package:qr_reader/features/scan_qr/manager/scan_qr_cubit/scan_qr_cubit.dart';
+import 'package:qr_reader/features/scan_qr/presentation/views/scan_qr_view.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -73,8 +73,8 @@ List<Widget> _buildScreens() {
   return [
     const GenerateQrView(),
     BlocProvider(
-      create: (context) => ReadQrCubit(),
-      child: const ReadQrView(),
+      create: (context) => ScanQrCubit(),
+      child: const ScanQrView(),
     ),
     const HistoryView(),
   ];
@@ -89,9 +89,7 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
       inactiveColorPrimary: Colors.white,
     ),
     PersistentBottomNavBarItem(
-      icon: Image.asset(
-        Assets.assetsImagesQrReaderIcon,
-      ),
+      icon: Image.asset(Assets.assetsImagesQrReaderIcon),
       inactiveColorPrimary: Colors.white,
       activeColorPrimary: AppColors.primary,
     ),
