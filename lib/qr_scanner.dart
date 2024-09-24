@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_reader/core/utils/theme.dart';
-import 'package:qr_reader/features/home/presentation/views/bottom_nav_bar.dart';
+import 'package:qr_reader/bottom_nav_bar.dart';
 
 class QrScanner extends StatelessWidget {
   const QrScanner({super.key});

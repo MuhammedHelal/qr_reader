@@ -4,8 +4,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 void showToast({
   required String message,
   required Color color,
-}) {
-  Fluttertoast.showToast(
+}) async {
+  await Fluttertoast.showToast(
     msg: message,
     toastLength: Toast.LENGTH_SHORT,
     gravity: ToastGravity.CENTER,

@@ -24,7 +24,6 @@ class ScanQrCubit extends Cubit<ScanQrState> {
     controller.scannedDataStream.listen((scanData) async {
       if (scanData.code == null) return;
       emit(ReadQrSuccess(data: scanData.code!));
-      await makeFeedback();
       await controller.pauseCamera();
     });
   }

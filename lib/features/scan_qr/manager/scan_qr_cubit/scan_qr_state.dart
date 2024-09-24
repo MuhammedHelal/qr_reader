@@ -6,8 +6,9 @@ final class ReadQrInitial extends ScanQrState {}
 
 final class ReadQrSuccess extends ScanQrState {
   final String? data;
-
-  ReadQrSuccess({required this.data});
+  ReadQrSuccess({required this.data}) {
+    makeFeedback();
+  }
 }
 
 final class ReadQrFail extends ScanQrState {

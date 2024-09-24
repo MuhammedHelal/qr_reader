@@ -1,4 +1,3 @@
-
 import 'package:just_audio/just_audio.dart';
 import 'package:qr_reader/core/services/locator.dart';
 import 'package:qr_reader/core/utils/assets.dart';
@@ -11,14 +10,7 @@ Future<void> makeFeedback() async {
     Vibration.vibrate(duration: 300);
   }
   if (settingsEntity.beep) {
-    AudioPlayer player = AudioPlayer();
-    await player.setAudioSource(AudioSource.asset(Assets.assetsSoundsDuck));
-    await player.play();
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        player.dispose();
-      },
-    );
+    await locator<AudioPlayer>().setAsset(Assets.assetsSoundsDuck);
+    await locator<AudioPlayer>().play();
   }
 }
