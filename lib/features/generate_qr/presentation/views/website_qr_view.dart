@@ -20,6 +20,7 @@ class _WebsiteQrViewState extends State<WebsiteQrView> {
   late final TextEditingController controller;
   late final GlobalKey<FormState> formKey;
   @override
+
   void initState() {
     super.initState();
     formKey = GlobalKey<FormState>();
