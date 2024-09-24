@@ -7,4 +7,9 @@ abstract class AppTextStyles {
     fontSize: 24,
     fontWeight: FontWeight.w600,
   );
+  static const TextStyle white24W500 = TextStyle(
+    color: Colors.white,
+    fontSize: 24,
+    fontWeight: FontWeight.w500,
+  );
 }

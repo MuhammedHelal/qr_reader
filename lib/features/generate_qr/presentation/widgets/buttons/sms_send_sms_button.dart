@@ -13,10 +13,7 @@ class SmsSendSmsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ActionButtonImpl(
-      icon: const Icon(
-        Icons.send,
-        size: 30,
-      ),
+      icon: const Icon(Icons.send, size: 30),
       title: 'Send SMS',
       onPressed: () async {
         await myLaunchURL(data);

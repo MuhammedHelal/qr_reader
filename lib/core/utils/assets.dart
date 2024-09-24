@@ -18,6 +18,10 @@ class Assets {
   /// assets/images/beep_icon.svg
   static const String assetsImagesBeepIcon = "assets/images/beep_icon.svg";
 
+  /// Assets for assetsImagesDuck
+  /// assets/images/duck.svg
+  static const String assetsImagesDuck = "assets/images/duck.svg";
+
   /// Assets for assetsImagesHomeBackground
   /// assets/images/home_background.svg
   static const String assetsImagesHomeBackground = "assets/images/home_background.svg";

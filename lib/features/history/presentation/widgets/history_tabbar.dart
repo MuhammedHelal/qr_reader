@@ -14,7 +14,6 @@ class HistoryTabbar extends StatelessWidget {
       length: 2,
       initialIndex: cubit.tapIndex,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: AppColors.blackGreyish,
@@ -31,9 +30,7 @@ class HistoryTabbar extends StatelessWidget {
           labelColor: Colors.black,
           unselectedLabelColor: Colors.white,
           tabs: const [
-            Tab(
-              text: 'Scanned',
-            ),
+            Tab(text: 'Scanned'),
             Tab(text: 'Generated'),
           ],
           onTap: (index) {

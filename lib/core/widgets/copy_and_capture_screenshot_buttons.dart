@@ -62,7 +62,7 @@ class CopyAndCaptureScreenshotButtons extends StatelessWidget {
                   );
                   GallerySaver.saveImage(
                     path!,
-                    albumName: 'QR Reader',
+                    albumName: 'QR Scanner',
                   );
                 } catch (e) {}
               },

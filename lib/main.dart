@@ -11,6 +11,8 @@ import 'core/utils/bloc_observer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
+  setupServiceLocator();
+
   await Hive.initFlutter();
   Hive.registerAdapter<HistoryItemEntity>(HistoryItemEntityAdapter());
   await Future.wait([
@@ -18,7 +20,6 @@ void main() async {
     Hive.openBox<HistoryItemEntity>(AppStrings.generatedHistoryBoxName),
     Hive.openBox(AppStrings.settingsBoxName),
   ]);
-  setupServiceLocator();
 
   runApp(const QrScanner());
 }

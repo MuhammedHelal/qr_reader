@@ -5,7 +5,9 @@ import 'package:qr_reader/features/settings/presentation/manager/cubit/settings_
 
 final GetIt locator = GetIt.instance;
 void setupServiceLocator() {
-  locator.registerSingleton<SettingsCubit>(SettingsCubit());
+  locator.registerLazySingleton<SettingsCubit>(
+    () => SettingsCubit(),
+  );
 
   locator.registerLazySingleton<HistoryCubit>(
     () => HistoryCubit(HistoryLocalDataSource()),

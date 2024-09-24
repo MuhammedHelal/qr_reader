@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:qr_reader/core/utils/strings.dart';
-import 'package:qr_reader/features/settings/domain/settings_entity.dart';
 
 class SettingsLocalDataSource {
   void saveBeep(bool value) async {

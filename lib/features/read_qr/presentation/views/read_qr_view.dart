@@ -5,7 +5,6 @@ import 'package:qr_reader/core/utils/colors.dart';
 import 'package:qr_reader/core/widgets/show_qr_view_with_cubit.dart';
 import 'package:qr_reader/features/read_qr/manager/read_qr_cubit/read_qr_cubit.dart';
 import 'package:qr_reader/features/read_qr/presentation/widgets/read_qr_buttons.dart';
-import 'package:vibration/vibration.dart';
 
 class ReadQrView extends StatelessWidget {
   const ReadQrView({super.key});

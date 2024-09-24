@@ -17,14 +17,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.4.1"
-  android_intent_plus:
-    dependency: "direct main"
-    description:
-      name: android_intent_plus
-      sha256: "007703c1b2cac7ca98add3336b98cffa4baa11d5133cc463293dba9daa39cdf6"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.1.0"
   ansicolor:
     dependency: transitive
     description:
@@ -358,14 +350,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.22"
-  flutter_sound_system:
+  flutter_share:
     dependency: "direct main"
     description:
-      name: flutter_sound_system
-      sha256: e9fe42f0a8838b330d7b548c84846b16b5f2850d985c2bbac8aca28d0260ce25
+      name: flutter_share
+      sha256: ae12c1cea13b35926a109824ffac601531e40cb94ad53eeae58625eceb3eaaaa
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.9"
+    version: "2.0.0"
   flutter_svg:
     dependency: "direct main"
     description:

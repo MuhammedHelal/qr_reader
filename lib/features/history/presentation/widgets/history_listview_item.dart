@@ -11,10 +11,7 @@ import 'package:qr_reader/features/history/presentation/widgets/delete_alert_dia
 import 'package:qr_reader/features/history/presentation/widgets/view_history_qr_item.dart';
 
 class HistoryListViewItem extends StatelessWidget {
-  const HistoryListViewItem({
-    super.key,
-    required this.item,
-  });
+  const HistoryListViewItem({super.key, required this.item});
   final HistoryItemEntity item;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +28,7 @@ class HistoryListViewItem extends StatelessWidget {
       },
       child: Container(
         width: double.infinity,
-        margin: const EdgeInsets.all(12),
+        margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.all(12),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(

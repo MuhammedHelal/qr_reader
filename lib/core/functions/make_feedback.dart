@@ -1,6 +1,4 @@
-import 'dart:developer';
 
-import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:qr_reader/core/services/locator.dart';
 import 'package:qr_reader/core/utils/assets.dart';
