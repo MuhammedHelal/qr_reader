@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qr_reader/features/read_qr/manager/read_qr_cubit/read_qr_cubit.dart';
+import 'package:qr_reader/features/scan_qr/manager/scan_qr_cubit/scan_qr_cubit.dart';
 
 class FlashButton extends StatefulWidget {
   const FlashButton({super.key});

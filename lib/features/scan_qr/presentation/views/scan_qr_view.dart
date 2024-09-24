@@ -4,6 +4,7 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qr_reader/core/utils/colors.dart';
 import 'package:qr_reader/core/widgets/show_qr_view_with_cubit.dart';
 import 'package:qr_reader/features/scan_qr/manager/scan_qr_cubit/scan_qr_cubit.dart';
+import 'package:qr_reader/features/scan_qr/presentation/widgets/scan_qr_buttons.dart';
 
 class ScanQrView extends StatelessWidget {
   const ScanQrView({super.key});
@@ -58,7 +59,7 @@ class ScanQrView extends StatelessWidget {
             top: 0,
             right: 0,
             left: 0,
-            child: ReadQrButtons(),
+            child: ScanQrButtons(),
           )
         ],
       ),

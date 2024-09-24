@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qr_reader/core/utils/colors.dart';
-import 'package:qr_reader/features/read_qr/manager/read_qr_cubit/read_qr_cubit.dart';
-import 'package:qr_reader/features/read_qr/presentation/widgets/flash_button.dart';
+import 'package:qr_reader/features/scan_qr/manager/scan_qr_cubit/scan_qr_cubit.dart';
+import 'package:qr_reader/features/scan_qr/presentation/widgets/flash_button.dart';
 
-class ReadQrButtons extends StatelessWidget {
-  const ReadQrButtons({super.key});
+class ScanQrButtons extends StatelessWidget {
+  const ScanQrButtons({super.key});
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<ScanQrCubit>(context);
