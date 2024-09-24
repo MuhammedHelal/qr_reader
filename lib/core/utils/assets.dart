@@ -14,21 +14,12 @@ class Assets {
   /// assets/images/background_circle_right.svg
   static const String assetsImagesBackgroundCircleRight = "assets/images/background_circle_right.svg";
 
-  /// Assets for assetsImagesBeepIcon
-  /// assets/images/beep_icon.svg
-  static const String assetsImagesBeepIcon = "assets/images/beep_icon.svg";
 
   /// Assets for assetsImagesDuck
   /// assets/images/duck.svg
   static const String assetsImagesDuck = "assets/images/duck.svg";
 
-  /// Assets for assetsImagesHomeBackground
-  /// assets/images/home_background.svg
-  static const String assetsImagesHomeBackground = "assets/images/home_background.svg";
 
-  /// Assets for assetsImagesLocationIcon
-  /// assets/images/location_icon.svg
-  static const String assetsImagesLocationIcon = "assets/images/location_icon.svg";
 
   /// Assets for assetsImagesMenuIcon
   /// assets/images/menu_icon.svg
