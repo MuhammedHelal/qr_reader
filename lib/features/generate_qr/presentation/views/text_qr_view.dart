@@ -62,6 +62,7 @@ class _TextQrViewState extends State<TextQrView> {
                             child: Form(
                               key: formKey,
                               child: TextFormField(
+                                style: AppTextStyles.white17W400,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Enter your text';

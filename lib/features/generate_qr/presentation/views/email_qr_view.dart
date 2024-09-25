@@ -72,6 +72,7 @@ class _EmailQrViewState extends State<EmailQrView> {
                               child: Column(
                                 children: [
                                   TextFormField(
+                                    style: AppTextStyles.white16W400,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'Enter email';
@@ -89,6 +90,7 @@ class _EmailQrViewState extends State<EmailQrView> {
                                   ),
                                   const Gap(12),
                                   TextFormField(
+                                    style: AppTextStyles.white16W400,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'Enter subject';
@@ -104,6 +106,7 @@ class _EmailQrViewState extends State<EmailQrView> {
                                   ),
                                   const Gap(12),
                                   TextFormField(
+                                    style: AppTextStyles.white16W400,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'Enter body';

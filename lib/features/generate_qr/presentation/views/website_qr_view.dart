@@ -67,6 +67,7 @@ class _WebsiteQrViewState extends State<WebsiteQrView> {
                             child: Form(
                               key: formKey,
                               child: TextFormField(
+                                style: AppTextStyles.white16W400,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Enter your website url';

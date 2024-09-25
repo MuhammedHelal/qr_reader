@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qr_reader/core/utils/colors.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 
 abstract class AppTheme {
   static final ThemeData darkTheme = ThemeData(
@@ -22,6 +23,7 @@ abstract class AppTheme {
         foregroundColor: AppColors.blackGreyish,
       ),
     ),
+    
     inputDecorationTheme: InputDecorationTheme(
       errorBorder: const OutlineInputBorder(
         borderRadius: BorderRadius.all(
@@ -32,7 +34,8 @@ abstract class AppTheme {
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
       ),
-      hintStyle: const TextStyle(color: Colors.grey),
+      hintStyle: AppTextStyles.grey14W400,
+      labelStyle: AppTextStyles.white17W400,
       filled: true,
       fillColor: AppColors.primary.withOpacity(0.25),
       focusedBorder: const OutlineInputBorder(
@@ -50,13 +53,6 @@ abstract class AppTheme {
       color: AppColors.primary,
       size: 45,
     ),
-    textTheme: GoogleFonts.itimTextTheme(
-      const TextTheme(
-        bodyMedium: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-        ),
-      ),
-    ),
+    textTheme: GoogleFonts.itimTextTheme(),
   );
 }

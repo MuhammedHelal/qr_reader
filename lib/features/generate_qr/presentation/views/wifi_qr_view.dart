@@ -71,6 +71,7 @@ class _WifiQrViewState extends State<WifiQrView> {
                               child: Column(
                                 children: [
                                   TextFormField(
+                                    style: AppTextStyles.white17W400,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'Enter wifi name';
@@ -89,6 +90,7 @@ class _WifiQrViewState extends State<WifiQrView> {
                                   securityValue == 'None'
                                       ? const SizedBox.shrink()
                                       : TextFormField(
+                                          style: AppTextStyles.white17W400,
                                           validator: (value) {
                                             if (value == null ||
                                                 value.isEmpty) {
@@ -105,6 +107,7 @@ class _WifiQrViewState extends State<WifiQrView> {
                                         ),
                                   const Gap(12),
                                   DropdownButtonFormField(
+                                    style: AppTextStyles.white16W400,
                                     decoration: const InputDecoration(
                                       labelText: 'Security',
                                     ),
@@ -134,7 +137,10 @@ class _WifiQrViewState extends State<WifiQrView> {
                                         },
                                       ),
                                       const Gap(4),
-                                      const Text('Hidden'),
+                                      const Text(
+                                        'Hidden',
+                                        style: AppTextStyles.primary17W400,
+                                      ),
                                     ],
                                   ),
                                 ],

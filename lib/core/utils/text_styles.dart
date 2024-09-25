@@ -3,6 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:qr_reader/core/utils/colors.dart';
 
 abstract class AppTextStyles {
+  static const TextStyle primary17W400 = TextStyle(
+    color: AppColors.primary,
+    fontSize: 17,
+    fontWeight: FontWeight.w400,
+  );
   static const TextStyle primary24W600 = TextStyle(
     color: AppColors.primary,
     fontSize: 24,
@@ -36,10 +41,12 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
   static const TextStyle white17W400 = TextStyle(
+    color: Colors.white,
     fontSize: 17,
     fontWeight: FontWeight.w400,
   );
   static const TextStyle white16W400 = TextStyle(
+    color: Colors.white,
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );

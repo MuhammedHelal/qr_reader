@@ -74,6 +74,7 @@ class _EventQrViewState extends State<EventQrView> {
                               child: Column(
                                 children: [
                                   TextFormField(
+                                    style: AppTextStyles.white16W400,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'Enter event name';
@@ -105,6 +106,7 @@ class _EventQrViewState extends State<EventQrView> {
                                       }
                                     },
                                     child: TextFormField(
+                                      style: AppTextStyles.white16W400,
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return 'Choose start date';
@@ -141,6 +143,7 @@ class _EventQrViewState extends State<EventQrView> {
                                       }
                                     },
                                     child: TextFormField(
+                                      style: AppTextStyles.white16W400,
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return 'Choose end date';
@@ -160,6 +163,7 @@ class _EventQrViewState extends State<EventQrView> {
                                   ),
                                   const Gap(8),
                                   TextFormField(
+                                    style: AppTextStyles.white16W400,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'Enter event address';
@@ -176,6 +180,7 @@ class _EventQrViewState extends State<EventQrView> {
                                   ),
                                   const Gap(8),
                                   TextFormField(
+                                    style: AppTextStyles.white16W400,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'Enter description';

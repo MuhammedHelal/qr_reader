@@ -67,6 +67,7 @@ class _SmsQrViewState extends State<SmsQrView> {
                               child: Column(
                                 children: [
                                   TextFormField(
+                                    style: AppTextStyles.white16W400,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'Enter phone number';
@@ -83,6 +84,7 @@ class _SmsQrViewState extends State<SmsQrView> {
                                   ),
                                   const Gap(12),
                                   TextFormField(
+                                    style: AppTextStyles.white16W400,
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'Enter body';
