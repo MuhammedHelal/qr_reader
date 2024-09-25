@@ -24,7 +24,7 @@ class SupportColumn extends StatelessWidget {
       children: [
         const Text(
           'Support',
-          style: AppTextStyles.primary24W600,
+          style: AppTextStyles.primary26W500,
         ),
         const Gap(20),
         SettingsItemContainer(
@@ -44,8 +44,14 @@ class SupportColumn extends StatelessWidget {
                 height: 24,
                 Assets.assetsImagesRateUsIcon,
               ),
-              title: const Text('Rate us'),
-              subtitle: const Text('Your best reward to us.'),
+              title: Text(
+                'Rate us',
+                style: AppTextStyles.robotoWhite16W400,
+              ),
+              subtitle: Text(
+                'Your best reward to us.',
+                style: AppTextStyles.robotoLightWhite14W400,
+              ),
             ),
           ),
         ),
@@ -69,8 +75,14 @@ class SupportColumn extends StatelessWidget {
                 size: 25,
                 color: AppColors.primary,
               ),
-              title: const Text('Share the app'),
-              subtitle: const Text('Sharing is always caring.'),
+              title: Text(
+                'Share the app',
+                style: AppTextStyles.robotoWhite16W400,
+              ),
+              subtitle: Text(
+                'Sharing is always caring.',
+                style: AppTextStyles.robotoLightWhite14W400,
+              ),
             ),
           ),
         ),

@@ -15,7 +15,7 @@ class SettingsColumn extends StatelessWidget {
       children: [
         Text(
           'Settings',
-          style: AppTextStyles.primary24W600,
+          style: AppTextStyles.primary26W500,
         ),
         Gap(20),
         SettingsItemContainer(

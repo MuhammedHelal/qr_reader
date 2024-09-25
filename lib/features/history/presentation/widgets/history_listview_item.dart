@@ -36,7 +36,6 @@ class HistoryListViewItem extends StatelessWidget {
           color: AppColors.blackGreyish,
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               decoration: BoxDecoration(

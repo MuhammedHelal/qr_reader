@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:qr_reader/core/utils/assets.dart';
 import 'package:qr_reader/core/utils/colors.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/features/generate_qr/presentation/views/generate_qr_view.dart';
 import 'package:qr_reader/features/history/presentation/views/history_view.dart';
 import 'package:qr_reader/features/scan_qr/manager/scan_qr_cubit/scan_qr_cubit.dart';
@@ -85,6 +86,7 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
     PersistentBottomNavBarItem(
       icon: const Icon(Icons.qr_code_2_outlined),
       title: ("Generate"),
+      textStyle: AppTextStyles.white16W400,
       activeColorPrimary: AppColors.primary,
       inactiveColorPrimary: Colors.white,
     ),
@@ -95,7 +97,9 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
     ),
     PersistentBottomNavBarItem(
       icon: const Icon(Icons.history),
+      inactiveIcon: const Icon(Icons.history),
       title: ("History"),
+      textStyle: AppTextStyles.white16W400,
       activeColorPrimary: AppColors.primary,
       inactiveColorPrimary: Colors.white,
     ),

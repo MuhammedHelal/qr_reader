@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/core/widgets/custom_screen_title.dart';
 import 'package:qr_reader/features/history/presentation/manager/history_cubit/history_cubit.dart';
 import 'package:qr_reader/features/history/presentation/widgets/history_listview_item.dart';
@@ -26,7 +27,10 @@ class HistoryViewBody extends StatelessWidget {
                   if (state is HistorySuccess) {
                     if (state.history.isEmpty) {
                       return const Center(
-                        child: Text('No data'),
+                        child: Text(
+                          'No data',
+                          style: AppTextStyles.primary26W500,
+                        ),
                       );
                     } else {
                       return ListView.builder(
