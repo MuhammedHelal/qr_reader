@@ -12,4 +12,17 @@ abstract class AppTextStyles {
     fontSize: 24,
     fontWeight: FontWeight.w500,
   );
+  static const TextStyle white17W400 = TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.w400,
+  );
+  static const TextStyle white16W400 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
+  static const TextStyle grey14W400 = TextStyle(
+    fontSize: 14,
+    color: AppColors.grey,
+    fontWeight: FontWeight.w400,
+  );
 }

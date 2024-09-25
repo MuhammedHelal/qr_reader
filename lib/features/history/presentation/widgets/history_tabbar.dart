@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qr_reader/core/utils/colors.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/features/history/presentation/manager/history_cubit/history_cubit.dart';
 
 class HistoryTabbar extends StatelessWidget {
@@ -30,8 +31,18 @@ class HistoryTabbar extends StatelessWidget {
           labelColor: Colors.black,
           unselectedLabelColor: Colors.white,
           tabs: const [
-            Tab(text: 'Scanned'),
-            Tab(text: 'Generated'),
+            Tab(
+              child: Text(
+                'Scanned',
+                style: AppTextStyles.white17W400,
+              ),
+            ),
+            Tab(
+              child: Text(
+                'Generated',
+                style: AppTextStyles.white17W400,
+              ),
+            ),
           ],
           onTap: (index) {
             cubit.chooseTab(index);

@@ -6,6 +6,7 @@ import 'package:qr_reader/core/functions/format_datetime.dart';
 import 'package:qr_reader/core/functions/navbar_navigation.dart';
 import 'package:qr_reader/core/functions/show_toast.dart';
 import 'package:qr_reader/core/utils/colors.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/features/history/domain/history_item_entity.dart';
 import 'package:qr_reader/features/history/presentation/widgets/delete_alert_dialog.dart';
 import 'package:qr_reader/features/history/presentation/widgets/view_history_qr_item.dart';
@@ -31,9 +32,7 @@ class HistoryListViewItem extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.all(12),
         decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(16),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
           color: AppColors.blackGreyish,
         ),
         child: Row(
@@ -48,41 +47,54 @@ class HistoryListViewItem extends StatelessWidget {
                   strokeAlign: BorderSide.strokeAlignOutside,
                 ),
               ),
-              child: QrImageView(
-                backgroundColor: Colors.white,
-                size: 60,
-                data: item.data,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: QrImageView(
+                  backgroundColor: Colors.white,
+                  size: 60,
+                  data: item.data,
+                ),
               ),
             ),
             const Gap(12),
             Expanded(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    item.qrData ?? item.data,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          item.qrData ?? item.data,
+                          style: AppTextStyles.white16W400,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () async {
+                          await confirmDelete(context);
+                        },
+                        icon: const Icon(Icons.delete_forever, size: 30),
+                      ),
+                    ],
                   ),
-                  const Gap(8),
-                  Text(item.type),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        item.type,
+                        style: AppTextStyles.grey14W400,
+                      ),
+                      Text(
+                        formatDateTime(item.date),
+                        style: AppTextStyles.grey14W400,
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: () async {
-                    await confirmDelete(context);
-                  },
-                  icon: const Icon(Icons.delete_forever, size: 35),
-                ),
-                Text(formatDateTimeTime(item.date)),
-                Text(formatDateTimeDate(item.date)),
-              ],
             ),
           ],
         ),
