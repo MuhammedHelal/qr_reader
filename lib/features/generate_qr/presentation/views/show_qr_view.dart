@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qr_reader/core/services/locator.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/core/widgets/copy_and_capture_screenshot_buttons.dart';
 import 'package:qr_reader/core/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,10 @@ class ShowQrView extends StatelessWidget {
                           child: BlocBuilder<ShowQrCubit, ShowQrState>(
                             builder: (context, state) {
                               if (state is ShowQrSuccess) {
-                                return Text(state.qrData);
+                                return Text(
+                                  state.qrData,
+                                  style: AppTextStyles.white17W400,
+                                );
                               } else if (state is ShowQrError) {
                                 return const Text('Cannot read this QR code');
                               } else {

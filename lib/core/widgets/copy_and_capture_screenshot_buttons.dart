@@ -4,6 +4,7 @@ import 'package:gallery_saver/gallery_saver.dart';
 import 'package:gap/gap.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_reader/core/functions/show_toast.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:screenshot/screenshot.dart';
 
 class CopyAndCaptureScreenshotButtons extends StatelessWidget {
@@ -38,7 +39,10 @@ class CopyAndCaptureScreenshotButtons extends StatelessWidget {
                   ClipboardData(text: data ?? ''),
                 );
               },
-              label: const Text('Copy'),
+              label: const Text(
+                'Copy',
+                style: AppTextStyles.blackGreyish16W400,
+              ),
             ),
           ),
           const Gap(16),
@@ -69,6 +73,7 @@ class CopyAndCaptureScreenshotButtons extends StatelessWidget {
               iconAlignment: IconAlignment.start,
               label: const Text(
                 'Screenshot',
+                style: AppTextStyles.blackGreyish16W400,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,

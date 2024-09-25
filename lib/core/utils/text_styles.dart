@@ -60,6 +60,11 @@ abstract class AppTextStyles {
     color: AppColors.blackGreyish,
     fontWeight: FontWeight.w600,
   );
+  static const TextStyle blackGreyish16W400 = TextStyle(
+    fontSize: 16,
+    color: AppColors.blackGreyish,
+    fontWeight: FontWeight.w400,
+  );
   static const TextStyle blackGreyish17W500 = TextStyle(
     fontSize: 17,
     color: AppColors.blackGreyish,

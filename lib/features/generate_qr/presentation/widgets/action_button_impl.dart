@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 
 class ActionButtonImpl extends StatelessWidget {
   const ActionButtonImpl({
@@ -18,7 +19,10 @@ class ActionButtonImpl extends StatelessWidget {
       child: ElevatedButton.icon(
         icon: icon,
         onPressed: onPressed,
-        label: Text(title),
+        label: Text(
+          title,
+          style: AppTextStyles.blackGreyish17W500,
+        ),
       ),
     );
   }
