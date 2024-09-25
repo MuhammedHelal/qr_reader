@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/core/widgets/back_icon_widget.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -24,10 +25,7 @@ class CustomAppBar extends StatelessWidget {
               const Gap(8),
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: AppTextStyles.white27W400,
               ),
             ],
           ),

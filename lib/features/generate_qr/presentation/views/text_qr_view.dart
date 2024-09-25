@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:qr_reader/core/functions/navbar_navigation.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/core/widgets/custom_appbar.dart';
 import 'package:qr_reader/core/widgets/show_qr_view_with_cubit.dart';
 import 'package:qr_reader/core/widgets/black_greyish_container.dart';
@@ -84,7 +85,10 @@ class _TextQrViewState extends State<TextQrView> {
                                 );
                               }
                             },
-                            child: const Text('Generate'),
+                            child: const Text(
+                              'Generate',
+                              style: AppTextStyles.blackGreyish17W500,
+                            ),
                           ),
                           const Gap(42),
                         ],

@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:qr_reader/core/functions/is_url.dart';
 import 'package:qr_reader/core/functions/navbar_navigation.dart';
 import 'package:qr_reader/core/utils/assets.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/core/widgets/custom_appbar.dart';
 import 'package:qr_reader/core/widgets/show_qr_view_with_cubit.dart';
 import 'package:qr_reader/core/widgets/black_greyish_container.dart';
@@ -20,7 +21,6 @@ class _WebsiteQrViewState extends State<WebsiteQrView> {
   late final TextEditingController controller;
   late final GlobalKey<FormState> formKey;
   @override
-
   void initState() {
     super.initState();
     formKey = GlobalKey<FormState>();
@@ -89,7 +89,10 @@ class _WebsiteQrViewState extends State<WebsiteQrView> {
                                 );
                               }
                             },
-                            child: const Text('Generate'),
+                            child: const Text(
+                              'Generate',
+                              style: AppTextStyles.blackGreyish17W500,
+                            ),
                           ),
                           const Gap(42),
                         ],
