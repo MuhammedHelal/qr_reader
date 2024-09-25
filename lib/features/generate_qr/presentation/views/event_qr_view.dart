@@ -62,7 +62,10 @@ class _EventQrViewState extends State<EventQrView> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const Gap(42),
-                          const Icon(Icons.event_available),
+                          const Icon(
+                            Icons.event_available,
+                            size: 60,
+                          ),
                           const Gap(52),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),

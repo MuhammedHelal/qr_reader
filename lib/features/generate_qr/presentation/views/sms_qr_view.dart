@@ -55,7 +55,10 @@ class _SmsQrViewState extends State<SmsQrView> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const Gap(42),
-                          const Icon(Icons.sms),
+                          const Icon(
+                            Icons.sms,
+                            size: 60,
+                          ),
                           const Gap(52),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),

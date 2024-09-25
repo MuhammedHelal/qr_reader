@@ -59,7 +59,10 @@ class _WifiQrViewState extends State<WifiQrView> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const Gap(42),
-                          const Icon(Icons.wifi),
+                          const Icon(
+                            Icons.wifi,
+                            size: 60,
+                          ),
                           const Gap(52),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),

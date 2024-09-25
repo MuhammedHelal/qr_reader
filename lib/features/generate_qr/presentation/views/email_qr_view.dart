@@ -60,7 +60,10 @@ class _EmailQrViewState extends State<EmailQrView> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const Gap(42),
-                          const Icon(Icons.alternate_email),
+                          const Icon(
+                            Icons.alternate_email,
+                            size: 60,
+                          ),
                           const Gap(52),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),

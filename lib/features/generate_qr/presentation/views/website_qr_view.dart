@@ -56,7 +56,11 @@ class _WebsiteQrViewState extends State<WebsiteQrView> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const Gap(42),
-                          SvgPicture.asset(Assets.assetsImagesWebsiteIcon),
+                          SvgPicture.asset(
+                            Assets.assetsImagesWebsiteIcon,
+                            height: 60,
+                            width: 60,
+                          ),
                           const Gap(52),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
