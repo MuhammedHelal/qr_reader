@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qr_reader/core/functions/navbar_navigation.dart';
 import 'package:qr_reader/core/utils/colors.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 
 class GenerateQrGridViewItem extends StatelessWidget {
   const GenerateQrGridViewItem({
@@ -51,10 +52,7 @@ class GenerateQrGridViewItem extends StatelessWidget {
               child: Center(
                 child: Text(
                   title,
-                  style: const TextStyle(
-                    color: AppColors.blackGreyish,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTextStyles.blackGreyish14W600,
                 ),
               ),
             ),
