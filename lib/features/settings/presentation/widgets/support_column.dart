@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_share/flutter_share.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:qr_reader/core/utils/assets.dart';
@@ -64,11 +63,11 @@ class SupportColumn extends StatelessWidget {
                 const String message =
                     "📱 Check out this QR Scanner App!\n🔍 Quickly scan and generate QR codes with ease!\n🔄 Save your QR codes history and never lose track.\n⚙️ User-friendly interface for seamless experience\nDownload it now and make scanning QR codes a breeze! 🚀";
 
-                await FlutterShare.share(
+                /* await FlutterShare.share(
                   title: '📱 Check out this QR Scanner App!',
                   text: message,
                   linkUrl: playStoreWebUri.toString(),
-                );
+                );*/
               },
               leading: const Icon(
                 Icons.share,

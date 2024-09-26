@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_share/flutter_share.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:gap/gap.dart';
 import 'package:path_provider/path_provider.dart';
@@ -133,10 +132,10 @@ Future<void> shareQRCodeImage(Uint8List qrImageBytes) async {
   final tempDir = await getTemporaryDirectory();
   final file =
       await File('${tempDir.path}/qr_code.png').writeAsBytes(qrImageBytes);
-  await FlutterShare.shareFile(
+/* await FlutterShare.shareFile(
     title: 'Scanned using QR Scanner',
     filePath: file.path,
     text:
         'download now from playstore https://play.google.com/store/apps/details?id=dev.moashraf.qr_reader',
-  );
+  );*/
 }
