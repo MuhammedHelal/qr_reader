@@ -4,6 +4,8 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_reader/core/classes/qr_parser.dart';
 import 'package:qr_reader/core/functions/format_datetime.dart';
 import 'package:qr_reader/core/utils/colors.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
+import 'package:qr_reader/core/widgets/custom_qr_image_view.dart';
 import 'package:qr_reader/core/widgets/show_qr_view_buttons.dart';
 import 'package:qr_reader/core/widgets/custom_appbar.dart';
 import 'package:qr_reader/core/functions/build_action_button.dart';
@@ -28,11 +30,11 @@ class ViewHistoryQrItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 CustomAppBar(title: item.type),
-                const Gap(10),
                 Screenshot(
                   controller: screenshotController,
                   child: Column(
                     children: [
+                      const Gap(10),
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 16),
                         width: double.infinity,
@@ -43,33 +45,23 @@ class ViewHistoryQrItem extends StatelessWidget {
                           ),
                           color: AppColors.blackGreyish,
                         ),
-                        child: Text(item.qrData ?? item.data),
+                        child: Text(
+                          item.qrData ?? item.data,
+                          style: AppTextStyles.white17W400,
+                        ),
                       ),
                       const Gap(40),
                       Center(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              color: AppColors.primary,
-                              width: 4,
-                              strokeAlign: BorderSide.strokeAlignOutside,
-                            ),
-                          ),
-                          child: QrImageView(
-                            data: item.data,
-                            backgroundColor: Colors.white,
-                            size: 160,
-                          ),
-                        ),
+                        child: CustomQrImageView(data: item.data),
                       ),
+                      const Gap(41),
                     ],
                   ),
                 ),
-                const Gap(41),
                 ShowQrViewButtons(
-                  data: item.qrData ?? item.data,
                   screenshotController: screenshotController,
+                  data: item.data,
+                  qrData: item.qrData ?? item.data,
                 ),
                 const Gap(12),
                 buildActionbutton(
@@ -78,7 +70,10 @@ class ViewHistoryQrItem extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Text(formatDateTime(item.date)),
+                  child: Text(
+                    formatDateTime(item.date),
+                    style: AppTextStyles.grey14W400,
+                  ),
                 ),
               ],
             ),

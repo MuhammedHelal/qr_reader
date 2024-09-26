@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gallery_saver/gallery_saver.dart';
@@ -7,19 +8,24 @@ import 'package:gap/gap.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_reader/core/functions/show_toast.dart';
+import 'package:qr_reader/core/utils/colors.dart';
+import 'package:qr_reader/core/utils/strings.dart';
 import 'package:qr_reader/core/utils/text_styles.dart';
+import 'package:qr_reader/core/widgets/custom_qr_image_view.dart';
+import 'package:qr_reader/features/generate_qr/presentation/widgets/generate_qr_item_view_body.dart';
 import 'package:screenshot/screenshot.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ShowQrViewButtons extends StatelessWidget {
   const ShowQrViewButtons({
     super.key,
     required this.data,
+    required this.qrData,
     required this.screenshotController,
   });
-
-  final String? data;
   final ScreenshotController screenshotController;
-
+  final String data;
+  final String qrData;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,32 +40,40 @@ class ShowQrViewButtons extends StatelessWidget {
             ),
             title: 'Copy',
             onPressed: () async {
-              showToast(
+              await showToast(
                 message: 'Copid to clipboard',
                 color: Colors.green,
               );
               await Clipboard.setData(
-                ClipboardData(text: data ?? ''),
+                ClipboardData(text: qrData),
               );
             },
           ),
           CustomButton(
             onPressed: () async {
-              try {
-                final path = await saveScreenshotToDevice(
-                  data: data,
-                  screenshotController: screenshotController,
+              final directory = (await getTemporaryDirectory()).path;
+
+              final path = await screenshotController.captureAndSave(
+                directory,
+                fileName: 'screenshot.png',
+                delay: const Duration(milliseconds: 100),
+              );
+              if (path == null) return;
+              final result = await GallerySaver.saveImage(
+                path,
+                albumName: 'QR Scanner',
+              );
+              if (result == null || !result) {
+                await showToast(
+                  message: 'Failed to save screenshot',
+                  color: Colors.red,
                 );
-                if (path == null) return;
-                GallerySaver.saveImage(
-                  path,
-                  albumName: 'QR Scanner',
-                );
-                showToast(
+              } else {
+                await showToast(
                   message: 'Captured screenshot and saved to device',
                   color: Colors.green,
                 );
-              } catch (e) {}
+              }
             },
             icon: const Icon(
               size: 25,
@@ -70,9 +84,18 @@ class ShowQrViewButtons extends StatelessWidget {
           CustomButton(
             onPressed: () async {
               final image = await ScreenshotController().captureFromWidget(
-                QrImageView(data: data!),
+                Padding(
+                  padding: const EdgeInsets.all(25),
+                  child: CustomQrImageView(data: data),
+                ),
               );
-              await shareQRCodeImage(image);
+              final file = XFile.fromData(image, mimeType: 'image/png');
+              await Share.shareXFiles(
+                [file],
+                text:
+                    'Scanned by QR Scanner.\n\nDownload now from playstore\n\n${AppStrings.appStoreUrl}',
+                subject: 'QR code',
+              );
             },
             title: 'Share',
             icon: const Icon(
@@ -113,29 +136,4 @@ class CustomButton extends StatelessWidget {
       ],
     );
   }
-}
-
-Future<String?> saveScreenshotToDevice({
-  required String? data,
-  required ScreenshotController screenshotController,
-}) async {
-  final directory = (await getApplicationDocumentsDirectory()).path;
-
-  final path = await screenshotController.captureAndSave(
-    directory,
-    fileName: '${data ?? DateTime.now().toString()}.png',
-  );
-  return path;
-}
-
-Future<void> shareQRCodeImage(Uint8List qrImageBytes) async {
-  final tempDir = await getTemporaryDirectory();
-  final file =
-      await File('${tempDir.path}/qr_code.png').writeAsBytes(qrImageBytes);
-/* await FlutterShare.shareFile(
-    title: 'Scanned using QR Scanner',
-    filePath: file.path,
-    text:
-        'download now from playstore https://play.google.com/store/apps/details?id=dev.moashraf.qr_reader',
-  );*/
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:qr_reader/core/services/locator.dart';
 import 'package:qr_reader/core/utils/colors.dart';
+import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/features/history/domain/history_item_entity.dart';
 import 'package:qr_reader/features/history/presentation/manager/history_cubit/history_cubit.dart';
 
@@ -21,6 +22,7 @@ class DeleteAlertDialog extends StatelessWidget {
       ),
       content: const Text(
         'Are you sure?',
+        style: AppTextStyles.white17W400,
         textAlign: TextAlign.center,
       ),
       actions: [

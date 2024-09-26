@@ -28,19 +28,19 @@ class HistoryTabbar extends StatelessWidget {
             color: AppColors.primary,
             borderRadius: BorderRadius.circular(8),
           ),
-          labelColor: Colors.black,
+          labelColor: AppColors.blackGreyish,
           unselectedLabelColor: Colors.white,
           tabs: const [
             Tab(
               child: Text(
                 'Scanned',
-                style: AppTextStyles.white17W400,
+                //  style: AppTextStyles.white17W400,
               ),
             ),
             Tab(
               child: Text(
                 'Generated',
-                style: AppTextStyles.white17W400,
+                //  style: AppTextStyles.white17W400,
               ),
             ),
           ],

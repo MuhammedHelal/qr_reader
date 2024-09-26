@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:qr_reader/core/functions/format_datetime.dart';
 import 'package:qr_reader/core/services/locator.dart';
 import 'package:qr_reader/core/utils/text_styles.dart';
+import 'package:qr_reader/core/widgets/custom_qr_image_view.dart';
 import 'package:qr_reader/core/widgets/show_qr_view_buttons.dart';
 import 'package:qr_reader/core/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +22,8 @@ class ShowQrView extends StatelessWidget {
   const ShowQrView({super.key});
   @override
   Widget build(BuildContext context) {
-    final ShowQrCubit cubit = BlocProvider.of<ShowQrCubit>(context);
     final ScreenshotController screenshotController = ScreenshotController();
+    final ShowQrCubit cubit = BlocProvider.of<ShowQrCubit>(context);
     if (cubit.save) {
       Future.delayed(const Duration(seconds: 2), () {
         log('delayed');
@@ -50,11 +52,11 @@ class ShowQrView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const CustomAppBar(title: ''),
-                  const Gap(10),
                   Screenshot(
                     controller: screenshotController,
                     child: Column(
                       children: [
+                        const Gap(10),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 16),
                           width: double.infinity,
@@ -82,35 +84,25 @@ class ShowQrView extends StatelessWidget {
                         ),
                         const Gap(40),
                         Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                color: AppColors.primary,
-                                width: 4,
-                                strokeAlign: BorderSide.strokeAlignOutside,
-                              ),
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-                              child: QrImageView(
-                                data: cubit.data,
-                                backgroundColor: Colors.white,
-                                size: 160,
-                              ),
-                            ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 75),
+                            child: CustomQrImageView(data: cubit.data),
                           ),
                         ),
+                        const Gap(41),
                       ],
                     ),
                   ),
-                  const Gap(41),
                   ShowQrViewButtons(
-                    data: cubit.qrData ?? cubit.data,
                     screenshotController: screenshotController,
+                    data: cubit.data,
+                    qrData: cubit.qrData ?? cubit.data,
                   ),
                   const Gap(32),
-                  buildActionbutton(data: cubit.data, type: cubit.qrType),
+                  buildActionbutton(
+                    data: cubit.data,
+                    type: cubit.qrType,
+                  ),
                   const Gap(60),
                 ],
               ),

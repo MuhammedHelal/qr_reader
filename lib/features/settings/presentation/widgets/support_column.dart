@@ -3,8 +3,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:qr_reader/core/utils/assets.dart';
 import 'package:qr_reader/core/utils/colors.dart';
+import 'package:qr_reader/core/utils/strings.dart';
 import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/features/settings/presentation/widgets/settings_item_container.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const String appPackageName = 'dev.moashraf.qr_reader';
@@ -60,14 +62,10 @@ class SupportColumn extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
               onTap: () async {
-                const String message =
-                    "📱 Check out this QR Scanner App!\n🔍 Quickly scan and generate QR codes with ease!\n🔄 Save your QR codes history and never lose track.\n⚙️ User-friendly interface for seamless experience\nDownload it now and make scanning QR codes a breeze! 🚀";
-
-                /* await FlutterShare.share(
-                  title: '📱 Check out this QR Scanner App!',
-                  text: message,
-                  linkUrl: playStoreWebUri.toString(),
-                );*/
+                await Share.share(
+                  '${AppStrings.shareAppTitle}\n\n${AppStrings.shareAppMessage}\n\n${AppStrings.appStoreUrl}',
+                  subject: AppStrings.shareAppTitle,
+                );
               },
               leading: const Icon(
                 Icons.share,
