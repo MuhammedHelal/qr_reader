@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_reader/core/classes/qr_parser.dart';
 import 'package:qr_reader/core/functions/format_datetime.dart';
 import 'package:qr_reader/core/utils/colors.dart';
-import 'package:qr_reader/core/widgets/copy_and_capture_screenshot_buttons.dart';
+import 'package:qr_reader/core/widgets/show_qr_view_buttons.dart';
 import 'package:qr_reader/core/widgets/custom_appbar.dart';
 import 'package:qr_reader/core/functions/build_action_button.dart';
 import 'package:qr_reader/features/generate_qr/presentation/widgets/generate_qr_item_view_body.dart';
@@ -68,7 +67,7 @@ class ViewHistoryQrItem extends StatelessWidget {
                   ),
                 ),
                 const Gap(41),
-                CopyAndCaptureScreenshotButtons(
+                ShowQrViewButtons(
                   data: item.qrData ?? item.data,
                   screenshotController: screenshotController,
                 ),

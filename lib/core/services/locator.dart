@@ -12,6 +12,7 @@ void setupServiceLocator() {
   locator.registerLazySingleton<AudioPlayer>(
     () => AudioPlayer(),
   );
+
   locator.registerLazySingleton<HistoryCubit>(
     () => HistoryCubit(HistoryLocalDataSource()),
   );

@@ -48,11 +48,11 @@ dependencies:
   qr_code_tools: ^0.1.0
   qr_flutter: ^4.1.0
   screenshot: null
+  share_plus: ^10.0.2
   svg_flutter: ^0.0.1
   url_launcher: ^6.3.0
   vibration: ^2.0.0
   wifi_iot: ^0.3.19+1
-  flutter_share: null
 
 dev_dependencies:
   build_runner: null

@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qr_reader/core/services/locator.dart';
 import 'package:qr_reader/core/utils/text_styles.dart';
-import 'package:qr_reader/core/widgets/copy_and_capture_screenshot_buttons.dart';
+import 'package:qr_reader/core/widgets/show_qr_view_buttons.dart';
 import 'package:qr_reader/core/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -91,10 +91,13 @@ class ShowQrView extends StatelessWidget {
                                 strokeAlign: BorderSide.strokeAlignOutside,
                               ),
                             ),
-                            child: QrImageView(
-                              data: cubit.data,
-                              backgroundColor: Colors.white,
-                              size: 160,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: QrImageView(
+                                data: cubit.data,
+                                backgroundColor: Colors.white,
+                                size: 160,
+                              ),
                             ),
                           ),
                         ),
@@ -102,11 +105,11 @@ class ShowQrView extends StatelessWidget {
                     ),
                   ),
                   const Gap(41),
-                  CopyAndCaptureScreenshotButtons(
+                  ShowQrViewButtons(
                     data: cubit.qrData ?? cubit.data,
                     screenshotController: screenshotController,
                   ),
-                  const Gap(12),
+                  const Gap(32),
                   buildActionbutton(data: cubit.data, type: cubit.qrType),
                   const Gap(60),
                 ],
