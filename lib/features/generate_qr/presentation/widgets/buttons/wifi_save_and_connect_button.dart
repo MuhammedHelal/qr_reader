@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:qr_reader/core/classes/qr_parser.dart';
 import 'package:qr_reader/core/functions/show_toast.dart';
+import 'package:qr_reader/core/utils/colors.dart';
 import 'package:qr_reader/features/generate_qr/presentation/widgets/action_button_impl.dart';
 import 'package:wifi_iot/wifi_iot.dart';
 
@@ -27,41 +31,47 @@ class WifiSaveWifiAndConnectButton extends StatelessWidget {
 }
 
 Future<void> _saveAndConnectToWifi(String data) async {
-  try {
-    RegExp regex = RegExp(r'WIFI:T:(.*?);S:(.*?);P:(.*?);H:(.*?);');
-    RegExpMatch? match = regex.firstMatch(data);
+  RegExp regex = QRCodeParser.wifiRegex;
+  RegExpMatch? match = regex.firstMatch(data);
 
-    String securityValue = match?.group(1) ?? '';
-    String networkName = match?.group(2) ?? '';
-    String password = match?.group(3) ?? '';
-    String hidden = match?.group(4) ?? '';
-    await WiFiForIoTPlugin.registerWifiNetwork(
-      //  withInternet: true,
-      networkName,
-      //  joinOnce: false,
-      isHidden: bool.parse(hidden),
-      security: _parseNetworkSecurity(securityValue),
-      password: password,
+  String ssid = match?.group(1) ?? "";
+  String securityType = match?.group(2) ?? "";
+  String password = match?.group(3) ?? "";
+  String hiddenStatus = match?.group(4) ?? "";
+  bool isEnabled = await WiFiForIoTPlugin.isEnabled();
+  if (!isEnabled) {
+    await showToast(message: 'Please enable wifi first', color: Colors.red);
+
+    await WiFiForIoTPlugin.setEnabled(true, shouldOpenSettings: true);
+    return;
+  }
+  final result = await WiFiForIoTPlugin.registerWifiNetwork(
+    ssid,
+    isHidden: bool.parse(hiddenStatus),
+    security: _parseNetworkSecurity(securityType),
+    password: password,
+  );
+  if (result) {
+    await showToast(
+      message: 'Saved $ssid successfully.',
+      color: Colors.green,
     );
-    await WiFiForIoTPlugin.setEnabled(true);
-    bool isConnected = await WiFiForIoTPlugin.connect(
-      withInternet: true,
-      networkName,
-      joinOnce: false,
-      isHidden: bool.parse(hidden),
-      security: _parseNetworkSecurity(securityValue),
-      password: password,
-    );
-    if (isConnected) {
-      showToast(
-        message: 'Connected to $networkName',
-        color: Colors.green,
-      );
-    }
-  } catch (e) {
-    showToast(
-      message: e.toString(),
-      color: Colors.red,
+  } else {
+    await showToast(message: 'Failed to save $ssid', color: Colors.red);
+  }
+
+  bool connected = await WiFiForIoTPlugin.connect(
+    withInternet: true,
+    ssid,
+    joinOnce: false,
+    isHidden: bool.parse(hiddenStatus),
+    security: _parseNetworkSecurity(securityType),
+    password: password,
+  );
+  if (connected) {
+    await showToast(
+      message: 'Connected successfully',
+      color: Colors.green,
     );
   }
 }

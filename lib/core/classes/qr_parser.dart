@@ -8,13 +8,13 @@ enum QRCodeType {
 }
 
 class QRCodeParser {
-  static final RegExp _emailRegex = RegExp(
+  static final RegExp emailRegex = RegExp(
     r'^mailto:([^?]+)\?subject=([^&]+)&body=(.*)',
     multiLine: true,
     dotAll: true,
   );
-  static final RegExp _wifiRegex =
-      RegExp(r'^WIFI:T:([^;]+);S:([^;]+);P:([^;]+);H:([^;]+);$');
+  static final RegExp wifiRegex =
+      RegExp(r"WIFI:S:(.*?);T:(.*?);P:(.*?);H:(.*?);");
   static final RegExp _smsRegex = RegExp(r'^sms:([^?]+)\?body=(.+)$');
   static final RegExp _websiteRegex = RegExp(
       r'^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$');
@@ -37,9 +37,9 @@ END:VCALENDAR''',
   );
 
   static QRCodeType getQRCodeType(String data) {
-    if (_emailRegex.hasMatch(data)) {
+    if (emailRegex.hasMatch(data)) {
       return QRCodeType.email;
-    } else if (_wifiRegex.hasMatch(data)) {
+    } else if (wifiRegex.hasMatch(data)) {
       return QRCodeType.wifi;
     } else if (_smsRegex.hasMatch(data)) {
       return QRCodeType.sms;
@@ -86,7 +86,7 @@ END:VCALENDAR''',
   }
 
   static String? _parseEmailQRCode(String data) {
-    final match = _emailRegex.firstMatch(data);
+    final match = emailRegex.firstMatch(data);
     if (match != null) {
       String email = match.group(1) ?? '';
       String subject = Uri.decodeComponent(match.group(2) ?? '');
@@ -97,13 +97,13 @@ END:VCALENDAR''',
   }
 
   static String? _parseWiFiQRCode(String data) {
-    final match = _wifiRegex.firstMatch(data);
+    final match = wifiRegex.firstMatch(data);
     if (match != null) {
-      String security = match.group(1) ?? '';
-      String ssid = match.group(2) ?? '';
-      String password = match.group(3) ?? '';
-      String hidden = match.group(4) ?? '';
-      return 'Security: $security\nSSID: $ssid\nPassword: $password\nHidden: $hidden';
+      String ssid = match.group(1) ?? "";
+      String securityType = match.group(2) ?? "";
+      String password = match.group(3) ?? "";
+      String hiddenStatus = match.group(4) ?? "";
+      return 'Security: $securityType\nSSID: $ssid\nPassword: $password\nHidden: $hiddenStatus';
     }
     return null;
   }

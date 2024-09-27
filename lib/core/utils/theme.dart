@@ -23,7 +23,6 @@ abstract class AppTheme {
         foregroundColor: AppColors.blackGreyish,
       ),
     ),
-    
     inputDecorationTheme: InputDecorationTheme(
       errorBorder: const OutlineInputBorder(
         borderRadius: BorderRadius.all(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qr_reader/core/utils/colors.dart';
-import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/features/history/presentation/manager/history_cubit/history_cubit.dart';
 
 class HistoryTabbar extends StatelessWidget {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_reader/core/classes/qr_parser.dart';
 import 'package:qr_reader/core/functions/format_datetime.dart';
 import 'package:qr_reader/core/utils/colors.dart';

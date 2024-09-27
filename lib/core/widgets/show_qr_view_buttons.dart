@@ -1,18 +1,13 @@
-import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:gap/gap.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_reader/core/functions/show_toast.dart';
-import 'package:qr_reader/core/utils/colors.dart';
 import 'package:qr_reader/core/utils/strings.dart';
 import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/core/widgets/custom_qr_image_view.dart';
-import 'package:qr_reader/features/generate_qr/presentation/widgets/generate_qr_item_view_body.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 

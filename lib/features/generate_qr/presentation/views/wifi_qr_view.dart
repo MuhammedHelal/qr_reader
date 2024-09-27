@@ -95,6 +95,8 @@ class _WifiQrViewState extends State<WifiQrView> {
                                             if (value == null ||
                                                 value.isEmpty) {
                                               return 'Enter wifi password';
+                                            } else if (value.length < 8) {
+                                              return 'Password must be at least 8 characters';
                                             }
                                             return null;
                                           },
@@ -151,7 +153,10 @@ class _WifiQrViewState extends State<WifiQrView> {
                           ElevatedButton(
                             onPressed: () {
                               final data =
-                                  'WIFI:T:$securityValue;S:${networkNameController.text};P:${passwordController.text};H:$hidden;';
+                                  " WIFI:S:${networkNameController.text};T:$securityValue;P:${passwordController.text};H:$hidden;";
+
+                              /* final data =
+                                  'WIFI:T:$securityValue;S:${networkNameController.text};P:${passwordController.text};H:$hidden;';*/
                               if (formKey.currentState!.validate()) {
                                 navigateWithoutNavBar(
                                   context,

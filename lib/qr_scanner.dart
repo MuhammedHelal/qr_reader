@@ -19,6 +19,7 @@ class QrScanner extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.dark,
+      theme: AppTheme.darkTheme,
       home: const BottomNavBar(),
     );
   }

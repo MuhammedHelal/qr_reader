@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qr_reader/core/functions/format_datetime.dart';
 import 'package:qr_reader/core/services/locator.dart';
 import 'package:qr_reader/core/utils/text_styles.dart';
 import 'package:qr_reader/core/widgets/custom_qr_image_view.dart';
@@ -9,7 +8,6 @@ import 'package:qr_reader/core/widgets/show_qr_view_buttons.dart';
 import 'package:qr_reader/core/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_reader/core/utils/colors.dart';
 import 'package:qr_reader/features/generate_qr/presentation/manager/show_qr_cubit/show_qr_cubit.dart';
 import 'package:qr_reader/core/functions/build_action_button.dart';

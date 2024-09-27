@@ -83,12 +83,12 @@ class HistoryListViewItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        item.type,
-                        style: AppTextStyles.grey14W400,
+                        item.type.toUpperCase(),
+                        style: AppTextStyles.grey13W400,
                       ),
                       Text(
                         formatDateTime(item.date),
-                        style: AppTextStyles.grey14W400,
+                        style: AppTextStyles.grey13W400,
                       ),
                     ],
                   ),

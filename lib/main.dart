@@ -8,7 +8,7 @@ import 'package:qr_reader/qr_scanner.dart';
 
 import 'core/utils/bloc_observer.dart';
 
-// v2.0.0-alpha.1
+// v2.1.3-alpha.1
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
